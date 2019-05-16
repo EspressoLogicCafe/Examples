@@ -1,4 +1,4 @@
-# Examples [ This page is under construction]
+# Examples
 This is a directory of example resources that Live API Creator team manages. The Objective of this directory is to help the user group discover all examples and sample code create by the Live API Creator Team.
 
 1. [DevOps](https://github.com/EspressoLogicCafe/Examples/tree/master/liveapicreator-devops) Get the Command Language Interfaces (CLI) for lac and lacadmin, and see DevOps examples of moving a project from dev to production
