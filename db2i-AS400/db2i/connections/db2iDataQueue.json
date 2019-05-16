@@ -1,0 +1,38 @@
+{
+  "name": "db2iDataQueue",
+  "isActive": false,
+  "description": "Provide details of AS400 simple non-keyed data queue connections parameters.",
+  "providerName": "Db2iDataQueue",
+  "parameters": {
+    "objectPath_path": {
+      "name": "objectPath",
+      "value": "/qsys.lib/libname.lib/SAMPLEQ",
+      "comments": null,
+      "kind": "path"
+    },
+    "password_path": {
+      "name": "password",
+      "value": "2:kpqwQW5eKRlaJaifyDfs9i1ZAPcNOjhx",
+      "comments": null,
+      "kind": "path"
+    },
+    "systemName_path": {
+      "name": "systemName",
+      "value": "as400Address",
+      "comments": null,
+      "kind": "path"
+    },
+    "type_path": {
+      "name": "type",
+      "value": "var Jt400Type = Java.type(\"org.apache.camel.component.jt400.Jt400Type\");\nvar fact = Jt400Type.DTAQ;\nreturn fact;",
+      "comments": null,
+      "kind": "path"
+    },
+    "userID_path": {
+      "name": "userID",
+      "value": "2:xJr6wXuS61XOp5SR165zgirB8xMJ8UAn",
+      "comments": null,
+      "kind": "path"
+    }
+  }
+}

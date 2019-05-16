@@ -1,0 +1,20 @@
+{
+  "name": "writeToKeyedQueue",
+  "isActive": true,
+  "comments": "This function demonstrates how we can write data to an AS400 Keyed data queue.",
+  "returnType": null,
+  "extendedProperties": null,
+  "parameters": {
+    "key": {
+      "parameterType": "string",
+      "isRequired": true,
+      "comments": "Enter description here"
+    },
+    "message": {
+      "parameterType": "string",
+      "isRequired": true,
+      "comments": "Enter description here"
+    }
+  },
+  "functionType": "apiLevel"
+}

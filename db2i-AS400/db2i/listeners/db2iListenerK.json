@@ -1,0 +1,23 @@
+{
+  "name": "db2iListenerK",
+  "isActive": false,
+  "loggingLevel": "Warning",
+  "isSingleServer": false,
+  "description": "Provide details of AS400 keyed data queue parameters like : Search Key and Search Type.",
+  "connectionName": "db2iDataQueueK",
+  "providerName": "Db2iDataQueue",
+  "parameters": {
+    "keyed": {
+      "value": "true",
+      "comments": null
+    },
+    "searchType": {
+      "value": "var Jt400Type = Java.type(\"org.apache.camel.component.jt400.Jt400Configuration.SearchType\");\nvar fact = Jt400Type.EQ;\nreturn fact;",
+      "comments": null
+    },
+    "searchKey": {
+      "value": "ABC",
+      "comments": null
+    }
+  }
+}

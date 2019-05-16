@@ -1,0 +1,31 @@
+{
+  "name": "LACAKDS",
+  "prefix": "LACAKDS",
+  "title": "IBM Db2 for i",
+  "databaseType": "DB2I5OS",
+  "comments": null,
+  "isActive": true,
+  "isLogErrors": false,
+  "isSchemaEditable": false,
+  "isSupportBoolean": false,
+  "isReadOnly": false,
+  "useJNDIDataSource": false,
+  "url": "jdbc:as400://as400Address;time format=iso;date format=iso;",
+  "catalog": null,
+  "schema": "as400Library",
+  "username": "as400User",
+  "password": "as400Password",
+  "maximumConnections": 20,
+  "tableExcludes": null,
+  "tableIncludes": null,
+  "procedureExcludes": null,
+  "procedureIncludes": null,
+  "nonPersistentAttributes": {
+  },
+  "tableInfos": {
+  },
+  "viewInfos": {
+  },
+  "procedureInfos": {
+  }
+}

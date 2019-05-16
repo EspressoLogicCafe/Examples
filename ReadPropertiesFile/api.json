@@ -1,0 +1,7 @@
+{
+  "name": "ReadPropertiesFile",
+  "urlFragment": "ReadPropertiesFile",
+  "comments": "Example demonstrates a simplified way to read .properties file can be read into LAC.\n\nThe code to read the file can be found under API Properties --> Libraries.\n\nThe code can be accessed by writing the JavaScript code --> readProp.readAPIProperties('properties file path\"'); \n\nThe response is a JSON object with key value pairs.",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

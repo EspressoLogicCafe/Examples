@@ -1,0 +1,9 @@
+{
+  "name": "RESTandSOAP",
+  "isActive": true,
+  "comments": "This is a skeleton function, you should most likely:\n1 - Give it a proper name (the default is a randomly generated 5-letter name)\n2 - Give it a proper comment\n3 - Change the code to do something useful",
+  "returnType": "{\n  \"description\": \"This is an example of a function that fetches data from a REST endpoint and then combines it with the data fetched from a SOAP endpoint.\"\n}",
+  "extendedProperties": null,
+  "parameters": null,
+  "functionType": "apiLevel"
+}

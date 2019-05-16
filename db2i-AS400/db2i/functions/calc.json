@@ -1,0 +1,20 @@
+{
+  "name": "calc",
+  "isActive": true,
+  "comments": "This function demonstrates how we can call a RPG program created on AS400 and expose it as a REST service.\nSample RPG Code is as below:\n\nD$num1            S             15S 0              \nD$num2            S             15S 0              \nD$addRS           S             20S 0              \nD$subRS           S             20S 0              \nD$mulRS           S             20S 0              \nD$divRS           S             20S 0              \n                                                   \nc     *entry        plist                          \nc                   parm                    $num1  \nc                   parm                    $num2  \nc                   parm                    $addRS \nc                   parm                    $subRS \nc                   parm                    $mulRS \nc                   parm                    $divRS \n                                                   \n                                            \n  /free                                     \n    $addRS   = $num1 + $num2 ;              \n    $subRS   = $num1 - $num2 ;              \n    $mulRS   = $num1 * $num2 ;              \n    $divRS   = $num1 / $num2 ;              \n    *inlr = *on;                            \n                                            \n /end-free",
+  "returnType": null,
+  "extendedProperties": null,
+  "parameters": {
+    "num1": {
+      "parameterType": "number",
+      "isRequired": true,
+      "comments": "Enter description here"
+    },
+    "num2": {
+      "parameterType": "number",
+      "isRequired": true,
+      "comments": "Enter description here"
+    }
+  },
+  "functionType": "apiLevel"
+}

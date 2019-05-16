@@ -1,0 +1,25 @@
+{
+  "name": "CallRPGProgram",
+  "isActive": true,
+  "comments": "This function demonstrates how we can call a RPG program created on AS400 and expose it as a REST service.\n\nSample RPG Code is as below:\n\nD$first_name      S             20                                     \nD$last_name       S             20                                     \nD$my_age          S              3S 0                                  \nD$message         S            100                                     \n                                                                       \nc     *entry        plist                                              \nc                   parm                    $first_name                \nc                   parm                    $last_name                 \nc                   parm                    $my_age                    \nc                   parm                    $message                   \n  /free                                                                \n                                                                       \n    $message = 'My name is ' + %trim($first_name) + ' ' +              \n                               %trim($last_name) + ' age ' +           \n                               %trim(%editc($my_age:'Z')) + ' years !';\n                                                                       \n    *inlr = *on;                                                       \n                                                                       \n /end-free",
+  "returnType": null,
+  "extendedProperties": null,
+  "parameters": {
+    "firstName": {
+      "parameterType": "string",
+      "isRequired": true,
+      "comments": "Enter description here"
+    },
+    "lastName": {
+      "parameterType": "string",
+      "isRequired": true,
+      "comments": "Enter description here"
+    },
+    "age": {
+      "parameterType": "number",
+      "isRequired": true,
+      "comments": "Enter description here"
+    }
+  },
+  "functionType": "apiLevel"
+}

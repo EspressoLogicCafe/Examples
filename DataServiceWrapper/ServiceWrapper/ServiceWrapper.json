@@ -1,0 +1,5 @@
+{
+  "name": "ServiceWrapper",
+  "description": "Proof of concept: swagger-driven Data Source Provider",
+  "isEnabled": true
+}

@@ -1,0 +1,15 @@
+{
+  "name": "db2iListener",
+  "isActive": false,
+  "loggingLevel": "Warning",
+  "isSingleServer": false,
+  "description": null,
+  "connectionName": "db2iDataQueue",
+  "providerName": "Db2iDataQueue",
+  "parameters": {
+    "keyed": {
+      "value": "",
+      "comments": null
+    }
+  }
+}

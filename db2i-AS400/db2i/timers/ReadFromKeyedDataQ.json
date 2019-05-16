@@ -1,0 +1,14 @@
+{
+  "name": "ReadFromKeyedDataQ",
+  "isRepeating": true,
+  "startTimestampOffset": "2019-01-06T05:30:54+00:00",
+  "endTimestampOffset": "2019-08-10T20:50:20+00:00",
+  "isNoOverlap": false,
+  "isActive": true,
+  "description": "This timer demonstrates how we can read data to an AS400 Keyed data queue.",
+  "maximumLogAgeSeconds": 2592000,
+  "isSingleServer": false,
+  "crontab": "/5 * * * * ? *",
+  "isLogErrorOnly": false,
+  "loggingLevel": "Fine"
+}

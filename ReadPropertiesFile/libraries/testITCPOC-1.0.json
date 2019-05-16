@@ -1,0 +1,10 @@
+{
+  "name": "testITCPOC",
+  "version": "1.0",
+  "isUsedByProject": true,
+  "title": "testITCPOC",
+  "description": "This is a JavaScript library",
+  "groupName": "newlib",
+  "docsURL": null,
+  "referenceURL": null
+}

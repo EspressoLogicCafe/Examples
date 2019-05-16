@@ -1,0 +1,90 @@
+"""
+Script to query Orders table for designated OrderID
+
+Usage: python verify [serverURL] [api-url]
+Example: python ./deployProdTests/python/verifyUsingRequests.python http://localhost:8080/rest/default/ b2bAuth
+verifies order exists, and had proper AmountTotal and discountedAmount
+
+"""
+
+try:
+    import sys
+    import json
+    import requests
+    from computeURL import computeUrlServer, computeUrlAPI
+except ImportError as error:
+    print "Python (using requests) B2B - to run this version, pip import requests"
+    sys.exit()
+
+
+def main():
+    print 'Number of arguments:', len(sys.argv), 'arguments.'
+    print 'Argument List:', str(sys.argv)
+
+    REST_HEADER = {'Accept': 'application/json', 'Authorization': 'CALiveAPICreator Bzn8jVyfOTiIpW6UQCgy:1'}
+    SERVER_URL = "http://localhost:8080/rest/default/"
+    if len(sys.argv) > 1:
+        SERVER_URL = sys.argv[1]
+    REST_URL = SERVER_URL + sys.argv[2] + '/v1/nw:Orders'
+    url = REST_URL
+
+    findOrderID = 2000  # default order to find (perhaps could be an argument)
+    if len(sys.argv) > 3:
+        findOrderID = int(sys.argv[3]);
+
+    print  '\n', "Python (using requests) B2B - verify that nw:Orders/2000 is found, with proper computed values from ", REST_URL
+    # eg, http://localhost:8080/rest/default/b2bderbynw/v1/nw:Orders
+
+    filterValue = 'equal(OrderID: ' + str(findOrderID) + ')'
+    payload = {'sysfilter': filterValue}
+
+    colName = u'OrderID'  # unicode is returned
+    loop = 1
+    while True:
+        r = requests.get(url, headers=REST_HEADER, params=payload)
+        # print "response, encoding, json follow... "
+        # print r.headers['content-type']
+        # print r.encoding
+        # print r.json()
+        data = json.loads(r.text)
+        data = r.json()
+        # print "here's the data", data
+        print "..nw:Orders/2000 response returned, checking computed values... "
+        for idx in range(len(data)):
+            try:
+                row = data[idx]
+            except:
+                print "error - could not get order from json: ", data
+            # print row
+            try:
+                if colName in row:
+                    if row[u'AmountTotal'] == 340.20 and row[u'discountedAmount'] == 336.798:
+                        print "....Success: values are correct - theOrder.AmountTotal == 304.20 && theOrder.discountedAmount == 336.798"
+                    else:
+                        print "....FAILURE: values not correct - theOrder.AmountTotal == 340.20 && theOrder.discountedAmount == 336.798"
+                        print "........here's the row", '\n', row
+            except:
+                print
+                print "**** " + colName + " not found in this row (perhaps due to " + r.encoding + ":\n", row
+                break
+
+        if (len(data) > 0):   # not needed here, but here's how you can get paginated results
+            if "@metadata" in data[len(data)-1]:
+                if 'next_batch' in data[len(data)-1]['@metadata']:
+                    url = data[len(data)-1]['@metadata']['next_batch']
+                else:
+                    break
+            else:
+                break
+        else:
+            break
+
+        if loop == 100:
+            break # Don't let it continue for ever!!!
+
+        loop += 1
+
+    pass
+
+if __name__ == '__main__':
+    main()

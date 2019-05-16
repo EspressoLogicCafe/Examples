@@ -1,0 +1,75 @@
+"""
+Script to query Orders table for designated OrderID (note; for consistency across machines - spaces not tabs)
+
+Usage: python verify [serverURL] [api-url]
+Example: python ./deployProdTests/python/verifyUsingHttplib.python http://localhost:8080/rest/default/ b2bAuth
+
+verifies order exists, and had proper AmountTotal and discountedAmount
+
+"""
+import httplib
+import json
+import sys
+
+def computeUrlServer(argv):
+    # print 'Number of arguments:', len(argv), 'arguments.'
+    # print 'Argument List:', str(argv)
+    server = "localhost:8080"
+    if len(argv) > 1:
+        server = argv[1]
+        if server.startswith("http://"):
+            server = argv[1]  [len("http://"): ]   # strip off http
+        if server.endswith("/rest/default/"):
+            server = server [0: len("/rest/default/")]
+    #  /rest/default/b2bderbynw/v1/nw:Orders/2000
+    return server
+
+def computeUrlAPI(argv):
+    urlAPI = '/rest/default/' + argv[2] + '/v1/nw:Orders/2000'
+    return urlAPI
+
+
+
+def main():   # ***** main sample code is here *****
+
+    server = computeUrlServer(sys.argv)
+    apiURL = computeUrlAPI(sys.argv)
+
+    print '\n', "Python (using httplib) B2B - verify that nw:Orders/2000 is found, with proper computed values, using apiURL: ", apiURL, "server: ", server
+    debug = False
+
+    conn = httplib.HTTPConnection(server)  # eg, localhost:8080
+    headers = {'Accept': 'application/json', 'Authorization': 'CALiveAPICreator Bzn8jVyfOTiIpW6UQCgy:1'}
+    conn.request('GET', apiURL, None, headers)    # eg, /rest/default/b2bderbynw/v1/nw:Orders/2000
+    resp = conn.getresponse()
+    jsonResponse = json.loads(resp.read())
+
+    if type(jsonResponse) == dict and jsonResponse.has_key('errorCode'):
+        print "Error : " + jsonResponse['errorMessage']
+        raise NameError('JSON contains errorCode')
+
+    try:
+        theOrder = jsonResponse[0]
+    except:
+        print "error - could not get order from json: ", jsonResponse
+
+    print "..nw:Orders response returned, checking computed values... "
+    if theOrder['OrderID'] == 2000 and theOrder['AmountTotal'] == 340.2 and theOrder['discountedAmount'] == 336.798:
+        print "....Success: values are correct - theOrder.AmountTotal == 340.20 && theOrder.discountedAmount == 336.798"
+    else:
+        print "...FAILURE - order 2000 not found, or has unexpected values...\n"
+        print theOrder['AmountTotal']
+        print theOrder['discountedAmount']
+        if debug:
+            print
+            print "rawJson <<resp.read()>>"
+            print str(rawJson)
+            print "\nand here is the Json <<json.loads(rawJson)>>"
+            print jsonResponse
+        raise NameError('FAILURE - order 2000 not found, or has unexpected values')
+    exit
+
+    pass
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,7 @@
+{
+  "name": "db2i",
+  "urlFragment": "db2i",
+  "comments": "An empty API ready for adding JavaScript functions, JavaScript resources, custom endpoints and data source connections.  \n\nFor example, try creating a new function.",
+  "isEnabled": true,
+  "authProviderName": "Built-in authentication"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "FTP",
+  "description": "This is a provider for creating connections/listeners that can connect to an FTP server to listen to and/or create files and directories. Important! Before making any changes, such as changing the code, create a backup of this listener provider.",
+  "mustHaveConnection": true,
+  "isEnabled": true
+}

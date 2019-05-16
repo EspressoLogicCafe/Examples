@@ -1,0 +1,5 @@
+{
+  "name": "AmazonDynamoDB",
+  "description": "WIP for Amazon DynamoDB Datasource Provider",
+  "isEnabled": true
+}

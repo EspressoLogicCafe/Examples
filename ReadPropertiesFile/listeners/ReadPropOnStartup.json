@@ -1,0 +1,9 @@
+{
+  "name": "ReadPropOnStartup",
+  "isActive": true,
+  "loggingLevel": "Finest",
+  "description": null,
+  "connectionName": null,
+  "providerName": "Startup",
+  "parameters": null
+}

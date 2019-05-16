@@ -1,0 +1,14 @@
+{
+  "name": "ReadFromDataQ",
+  "isRepeating": true,
+  "startTimestampOffset": "2019-01-06T05:29:10+00:00",
+  "endTimestampOffset": "2019-06-29T20:50:05+00:00",
+  "isNoOverlap": false,
+  "isActive": true,
+  "description": "This function demonstrates how we can write data to an AS400 simple non-keyed data queue.",
+  "maximumLogAgeSeconds": 2592000,
+  "isSingleServer": false,
+  "crontab": "/5 * * * * ? *",
+  "isLogErrorOnly": false,
+  "loggingLevel": "Fine"
+}
