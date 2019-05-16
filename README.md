@@ -15,7 +15,7 @@ This is a directory of example resources that Live API Creator team manages. The
 
 7. [FTP-Listener-Provider](https://github.com/EspressoLogicCafe/Examples/tree/master/FTP-Listener-Provider) : A pluggable listener provider for Live API Creator that would enable users to connect to an FTP server to listen to and/or to create files and directories.
 
-8 . [Amazon Dynamo DB](https://github.com/EspressoLogicCafe/Examples/tree/master/Amazon-Dynamo-DB-DataSource-Provider-Sample) : Sample code to add Amazon Dynamo DB as datasource in Live API Creator.
+8. [Amazon Dynamo DB](https://github.com/EspressoLogicCafe/Examples/tree/master/Amazon-Dynamo-DB-DataSource-Provider-Sample) : Sample code to add Amazon Dynamo DB as datasource in Live API Creator.
 
 9. [db2i-AS400](https://github.com/EspressoLogicCafe/Examples/tree/master/db2i-AS400) : Sample API demonstrating how Live API Creator can be used with AS400.
 
