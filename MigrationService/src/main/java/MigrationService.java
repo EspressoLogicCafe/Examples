@@ -163,7 +163,7 @@ public class MigrationService {
 		sb.append(COMMENT_LINE + " Please change script [teamspaceUser] and [teamspacePassword]"+fileLineBreak);
 		sb.append(COMMENT_LINE + " if you have more than 1 TeamSpace in your source system"+fileLineBreak);
 		sb.append(COMMENT_LINE + " "+fileLineBreak);
-		sb.append(COMMENT_LINE + " You will need to start your target server first"+fileLineBreak);
+		sb.append(COMMENT_LINE + " Start your target server first"+fileLineBreak);
 		sb.append(COMMENT_LINE + " and manually create each TeamSpace and user/password "+fileLineBreak);
 		sb.append(COMMENT_LINE + "================================================================"+fileLineBreak);
 	}

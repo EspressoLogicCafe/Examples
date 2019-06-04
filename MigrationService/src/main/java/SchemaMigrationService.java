@@ -81,7 +81,7 @@ public class SchemaMigrationService {
 		printExportMessage(COMMENT_LINE + "OS: " + System.getProperty("os.name"));
 		try {
 			schemaMigrationService.getApiKey();
-			printExportMessage(COMMENT_LINE + "Start Export Datasource Prefix:" + sourcePrefix);
+			printExportMessage(COMMENT_LINE + "Start Export Data source Prefix:" + sourcePrefix);
 			printExportMessage(OS_COMMAND + " login -u " + lacUser + " -p " + lacPassword + " " + PROJECT_URI);
 			printExportMessage(OS_COMMAND + " schema export --prefix " + sourcePrefix + " --file schemas/SCHEMA_" + sourcePrefix + ".json"); //--project_ident project_ident
 			createImportProject(importSB);
@@ -105,7 +105,7 @@ public class SchemaMigrationService {
 	}
 
 	private static void createImportProject(final StringBuilder importSB) {
-		importSB.append(COMMENT_LINE + "Start Import Datasource Prefix:" + sourcePrefix + "\n");
+		importSB.append(COMMENT_LINE + "Start Import Data source Prefix:" + sourcePrefix + "\n");
 		importSB.append(OS_COMMAND + " login -u " + lacUser + " -p " + lacPassword + " " + PROJECT_URI + "\n");
 		importSB.append("lacadmin login -u admin -p Password1 http://localhost:8080/\n");
 		importSB.append("lacadmin api use --url_name [project_url]\n");
@@ -133,7 +133,7 @@ public class SchemaMigrationService {
 		sb.append(COMMENT_LINE + "===============================================================\n");
 		sb.append(COMMENT_LINE + " EXPORT Schema Script\n");
 		sb.append(COMMENT_LINE + " The schemas directory will hold the @schema file for your\n");
-		sb.append(COMMENT_LINE + " datasource and all the tables as JSON files.\n");
+		sb.append(COMMENT_LINE + " data source and all the tables as JSON files.\n");
 		sb.append(COMMENT_LINE + "===============================================================\n");
 		sb.append("\n");
 		if (osName.contains("windows")) {
@@ -149,7 +149,7 @@ public class SchemaMigrationService {
 		sb.append(COMMENT_LINE + " IMPORT Schema Script\n");
 		sb.append(COMMENT_LINE + " The schemas directory has @schema and JSON data files.\n");
 		sb.append(COMMENT_LINE + " Please change script [preifx] and lacadmin target host\n");
-		sb.append(COMMENT_LINE + " To use: set the isEditable=true datasource prefix on the target project\n");
+		sb.append(COMMENT_LINE + " To use: set the isEditable=true data source prefix on the target project\n");
 		sb.append(COMMENT_LINE + " \n");
 		sb.append(COMMENT_LINE + " lacadmin managedserver create --server_name foo --user_name DerbyMDS --password blee \n");
 		sb.append(COMMENT_LINE + "       --url 'jdbc:derby:directory:ManagedData;create=true' \n");

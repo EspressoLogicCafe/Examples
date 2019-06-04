@@ -1,17 +1,18 @@
 # MigrationService Script Generator
 This is a utility written in Java to help devops in creating and running command line scripts to aid in
-the export/import between CA Live API Creator (LAC) versions. The shell program will prompt for the source LAC server host
-and the system and TeamSpace user/password.  The output will generate a command line script that will export all
+the export/import between CA Live API Creator (LAC) versions. The shell program prompts for the source LAC server host
+and the system and TeamSpace user/password.  The output is a command line script to export all
 of your source server components.  It will also generate a script to import these components to the new Live API Creator
-server.  The scripts will need to be manually modified to reflect the correct host server, user/passwords, and perhaps database 
-datasource passwords.  If you have multiple TeamSpace entries - the 5.0 LAC server will need to be manually initialized to support
-these new TeamSpace instances and a default user will need to be added.
+server.  The generated scripts can be modified to reflect the correct host server, user/passwords, and perhaps database 
+data source passwords.  If you have multiple TeamSpace entries - Initialize the 5.0 LAC server to support each new TeamSpace instances 
+with a default user.
 ## Prerequisites
-Make sure that you have Java installed (the main service is a Java class).  You will also need Git command line tools or
-if you donwload the ZIP version, you will need to unzip the MigrationService-master.zip file.
+Make sure that you have Java installed (the main service is a Java class).  You may need to install GIT and ZIP command line tools.
+if you download the ZIP version, next unzip the MigrationService-master.zip file.
 ```aidl
-* java 
-* git command line or zip utilities
+* java JDK 8
+* git command line 
+* zip utilities
 ```
 
 ## Clone this repository to a directory on your system.
@@ -35,8 +36,8 @@ mvn clean install
 ![alt text](MigrationService.png)
 ## To Run MAC OSX or Linux
 Make sure your source system has been started and that you can connect from this server.
-You will need 2 sets of users (sa and admin) and 2 sets of passwords for these users. 
-You can test each set using the lacadmin login command. (macos/lacadmin login -u sa -p Password http://localhost:8080)
+Create 2 sets of users (sa and admin) and 2 sets of passwords for each of these users. 
+Create test for each set using the 'lacadmin login' command. (e.g. macos/lacadmin login -u sa -p Password1 http://localhost:8080)
 
 ```
 MigrationService usage:
@@ -69,7 +70,7 @@ Remember to modify your MasterExport-1.sh and your MasterImport-2.sh scripts for
 ## (optional) Install NodeJS & liveapicreator-admin-cli
 The command line tool lacadmin was written in NodeJS.  This package contains compiled (pkg)
 versions of the command line tool for multiple platforms ([macos/lacadmin | linux/lacadmin | windows/lacadmin.exe]).  
-To see the source code and use the NodeJS package, you will need to install Node, NPM, and the command line tool.  
+To see the source code and use the NodeJS package, install Node, NPM, and the lacadmin command line tools.  
 Then you will want to modify your scripts to use 'lacadmin' as the global command instead of the package/compiled version.
 see (liveapicreator-admin-cli)[https://www.npmjs.com/package/liveapicreator-admin-cli]
 ```aidl
@@ -105,8 +106,8 @@ macos/lacadmin api export --url_name demo --file 'workspace/PROJECT_Demo_2000.js
 ```
 
 ## 2 - Script Import MasterImport-2[.ext]
-Look for a file named MasterImport-2[.extension] where extension is .sh or .cmd.  You will need to modify the lacadmin login to reflect the correct
-server and TeamSpace user/password.  If you have multiple TeamSpace, you will need to create each TeamSpace and default user, 
+Look for a file named MasterImport-2[.extension] where extension is .sh or .cmd.  Modify the lacadmin login to reflect the correct
+server and TeamSpace user/password.  If you have multiple TeamSpace, create each TeamSpace and default user, 
 then modify the import script to point to your new LAC 5.0 server.  When you run the script, the source files are in the 'workspace' directory.
 
 NOTE: Remember to start your target server and accept the EULA first. If you have multiple teamSapces, you will
@@ -118,7 +119,7 @@ NOTE: Remember to start your target server and accept the EULA first. If you hav
 #  Please change script [teampsaceUser] and [teamspacePassword]
 #  if you have more than 1 TeamSpace in your source system
 #  
-#  You will need to start your target server first
+#  Start your target server first
 #  and manually create each TeamSpace and user/password 
 # ================================================================
 macos/lacadmin logout
@@ -133,14 +134,14 @@ macos/lacadmin gateway import  --file 'workspace/GATEWAY_New_CA_API_Gateway_jpzs
 macos/lacadmin api import  --file 'workspace/PROJECT_Demo_2000.json' --namecollision replace_existing
 
 ```
-Note: Linux will output 2 login commands. This is caused by a defect in the lacadmin compiled version.
+Note: Linux generates 2 login commands. This is caused by a defect in the lacadmin compiled version.
 ## Workspace
 The workpsace directory will contain all of your APIs from your source system when you execute the MasterExport-1 script.
 The workspace will be used by the MasterImport-2 script as input to the new version of your LAC server.
 
 ## Multiple TeamsSpaces
 If you have multiple TeamSpace accounts - you must edit both the export and import scripts and enter the correct 
-[teamspaceUser] and [teampspacePassword].  For the 5.0 target server, you will need to create the teamSpace and teamSpace user 
+[teamspaceUser] and [teampspacePassword].  For the 5.0 target server, create the teamSpace and teamSpace user 
 first before you run the import scripts.
 ```aidl
 #  === REMEMBER TO CHANGE THE [teamspaceUser] and [teamspacePassword] for each TeamSpace instance. =====
@@ -149,10 +150,10 @@ macos/lacadmin login -u [teampsaceUser] -p [teamspacePassword] http://localhost:
 
 ```
 
-### Datasource passwords
-In earlier versions (3.1, 3.2, 4.0) of Live API Creator, datasource passwords were not exported in the JSON file.  
-The export script will attempt to generate and use the encrypted password and salt from the source server. 
-If the script fails to reset the password, remove the the --salt and change the --password to the plaintext version.
+### Data source passwords
+In Live API Creator 4.x and earlier, data source passwords were not exported in the JSON file.  
+The export script attempts to generate and use the encrypted password and salt from the source server. 
+If the script fails to reset the password, remove the --salt and change the --password to the plaintext version.
 ```
 macos/lacadmin api import  --file 'PROJECT_GM_Ftp_Server_POC.json'
 macos/lacadmin api use --url_name ftp 
@@ -160,10 +161,10 @@ macos/lacadmin datasource update  --password '2:B+G5IeItRuvCaEaJ8kgqD20d+XzMcUvR
 ```
 
 ## Authprovider Code Changes
-In 5.0, if you have written a custom JavaScript authprovider, the JavaScript code is now included with the authprovider itself.
-In prior versions, each API (i.e. project) would hold a library entry that was used by that project.  To manually
-migrate the code, you can cut and paste the code from a single API library and paste it into the TeamSpace Javascript authprovider.
-You can use the commands below to find the specific library (list) ident to export the code and import into the authprovider.
+In 5.0, if you have written a custom JavaScript authentication provider, the JavaScript code is now included with the authprovider itself.
+In Live API Creator 4.x and earlier, the API holds a library entry that the API uses.  To manually
+migrate the code, you can cut and paste the code from a single API library and paste it into the TeamSpace Javascript authentication provider.
+You can use the commands below to find the specific library (list) ident to export the code and import into the authentication provider.
 ```
 macos/lacadmin api use --url_name demo
 macos/lacadmin libraries list
@@ -172,7 +173,7 @@ macos/lacadmin authprovider importJSCode --file myLDAPAuthprovider.js --auth_nam
 ```
 ## Troubleshooting
 If you do not modify your scripts (MasterExport-1 or MasterImport-2) to reflect your TeamSpace username or password,
-the logon will fail and you will see a message like this below.  Make sure both export and import scripts reflect the accurate
+the logon fails and you will see a message like this below.  Make sure both export and import scripts reflect the accurate
 username and password for each additional TeamSpace.  Also, make sure your target server is running and you
 have 
 
