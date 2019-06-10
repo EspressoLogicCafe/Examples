@@ -12,9 +12,6 @@ appropriate directory to your path (or the directory in which you will be runnin
 
 ## Installation
 ```aidl
-    git clone https://github.com/EspressoLogicCafe/liveapicreator-devops.git
-    cd liveapicreator-devops
-    
     Select one of three directories (platform: windows, linux, and macos) and copy the 'lac' and 'lacadmin' to your
     path where you intend to run your scripts.
 
