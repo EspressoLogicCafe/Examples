@@ -12,8 +12,8 @@ JavaScript code that will connect to and allow the query, insert, update, and de
 In an existing API Datasource - the Add dialog will allow selection of one or these datasource providers.
 ```
 ## Example Folders
-1. [InMemoryExample][https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/InMemoryExample] : A simple read only storage of user defined values.
-2. [MySQL][https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/MySQL] : A JDBC example using MySQL driver.
-3. [PetStore][https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/PetStore] : The PetStore example showing how to use the framework to call REST. 
-4. [Rally][https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Rally] : The Rally example using REST to define all endpoints.
-5. [Runscope][https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Runscope] : The Runscope example using REST to define endpoints.
+1. [InMemoryExample](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/InMemoryExample) : A simple read only storage of user defined values.
+2. [MySQL](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/MySQL) : A JDBC example using MySQL driver.
+3. [PetStore](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/PetStore) : The PetStore example showing how to use the framework to call REST. 
+4. [Rally](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Rally) : The Rally example using REST to define all endpoints.
+5. [Runscope](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Runscope) : The Runscope example using REST to define endpoints.
