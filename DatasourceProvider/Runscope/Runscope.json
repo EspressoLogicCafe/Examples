@@ -1,0 +1,5 @@
+{
+  "name": "Runscope",
+  "description": "Broadcom Runscope Data Source Provider integration",
+  "isEnabled": true
+}

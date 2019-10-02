@@ -1,0 +1,5 @@
+{
+  "name": "MySQL",
+  "description": "JDBCExample using MySQL JDBC data source provider",
+  "isEnabled": true
+}

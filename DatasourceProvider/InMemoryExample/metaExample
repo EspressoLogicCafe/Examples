@@ -1,0 +1,49 @@
+types = {}
+
+dspFactory.createString('varchar(10)', 10);
+dspFactory.createInteger('bigint', 4);
+dspFactory.createDecimal('decimal(5,0)', 5, 0);
+
+dspFactory.createObject('MyAddress'
+  ,[ 'StreetName', 'StreetNumber', 'ZipCode' ]
+  ,[ 'varchar(10)','bigint', 'decimal(5,0)' ]
+  ,[ false, false, false ]
+);
+
+entities = [];
+
+staffEntity = {
+  name: 'Staff',
+  isTable: true,
+  columns: [
+    {
+      name: 'ident',
+      attrTypeName: 'bigint';
+      isNullable: false,
+      isAutoNumber: true
+    },
+    {
+      name: 'MyName',
+      attrTypeName: 'varchar(10)',
+      isNullable: false
+    },
+    {
+      name: 'MyAddress',
+      attrTypeName: 'MyAddress',
+      isNullable: false
+    }
+  ]
+  keys: [
+    {
+      name: 'MyPK',
+      columns: ['ident'],
+      isDatabasePrimary: true
+    },
+    {
+      name: 'MyNameKey',
+      columns: ['MyName'],
+    }
+}
+
+entities.push(staffEntity);
+

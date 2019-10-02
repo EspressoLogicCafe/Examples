@@ -1,0 +1,5 @@
+{
+  "name": "PetStore",
+  "description": "A simple example the OpenAPI Swagger Pet Store",
+  "isEnabled": true
+}

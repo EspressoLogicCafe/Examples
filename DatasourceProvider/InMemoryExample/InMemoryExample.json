@@ -1,0 +1,5 @@
+{
+  "name": "InMemoryExample",
+  "description": "A simple example using an in-memory Hash Map to stored data",
+  "isEnabled": true
+}

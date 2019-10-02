@@ -22,3 +22,5 @@ This is a directory of example resources that Live API Creator team manages. The
 10. [MigrationService](https://github.com/EspressoLogicCafe/Examples/tree/master/MigrationService) : A utility written in Java to help devops in creating and running command line scripts to aid in the export/import between CA Live API Creator (LAC) versions.
 
 11. [Simple LDAP AuthProvider](https://github.com/EspressoLogicCafe/Examples/tree/master/SimpleLDAPAuthProvider) : A JavaScript only auth provider example that uses a public LDAP server.
+
+12. [Data Source Provider Examples][https://github.com/EspressoLogicCafe/Examples.git/tree/master/DatasourceProvider] : Various examples using Layer7 Live API Creator Data Source Provider 5.3 framework.
