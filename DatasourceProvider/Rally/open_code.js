@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	log.info('DSP:Rally - open begin');
-	var authToken = settings && settings.authtoken || "_qV0sAV9pSi2t7yleIQXlVuRzDlUaUk6B1K84zcI";
+	var authToken = settings && settings.authtoken;
 	var connection = {
 		credentials: "Bearer " + authToken,
 		RallyBaseURL: "https://rally1.rallydev.com/slm/webservice/v2.0",
