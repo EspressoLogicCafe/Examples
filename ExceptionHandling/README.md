@@ -1,4 +1,4 @@
 # ExceptionHandling
-Multiple Ways to Handle Exception in LAC
+Multiple ways to handle exceptions in LAC.
 
 
