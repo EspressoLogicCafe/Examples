@@ -13,7 +13,7 @@ Copy the following JARs into your lib/ext folder of LAC instance:
 
 The following set of *.js files are aimed at providing users with a sample code to create Amazon DynamoDB data source provider. Please note this is just a partial example addressing basic CRUD operation to DynamoDB using LAC 5.0. Customers are expected to use this example, extend and own it.  
 
-This API example works with Live API Creator 5.0 and above. 
+This API example works with Live API Creator 5.1 and 5.2 only. 
 
 To use this example, follow the below steps:
 
