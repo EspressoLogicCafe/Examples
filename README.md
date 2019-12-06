@@ -5,7 +5,7 @@ This is a directory of example resources that the Live API Creator (LAC) team ma
 
 2. [ExceptionHandling](https://github.com/EspressoLogicCafe/Examples/tree/master/ExceptionHandling): This example demonstrates the different mechanisms a developer can use to handle exception and error scenarios in Live API Creator.
 
-3. [DataServiceWrapper](https://github.com/EspressoLogicCafe/Examples/tree/master/DataServiceWrapper): Illustrates wrapping LAC-based services with a data source provider, exposing service-based entities.
+3. [DataServiceWrapper](https://github.com/EspressoLogicCafe/Examples/tree/master/DataServiceWrapper): Illustrates wrapping LAC-based services with a data source provider, exposing service-based entities. v 51 or 5.2 only
 
 4. [MultiThreadedDemo](https://github.com/EspressoLogicCafe/Examples/tree/master/MultiThreadedDemo): This example demonstrates how to call multiple REST endpoints in parallel from LAC using the Java Concurrent Executors framework.
 
@@ -15,7 +15,7 @@ This is a directory of example resources that the Live API Creator (LAC) team ma
 
 7. [FTP-Listener-Provider](https://github.com/EspressoLogicCafe/Examples/tree/master/FTP-Listener-Provider): This example is a pluggable listener provider for Live API Creator that that you can use to connect to an FTP server to listen to and/or to create files and directories.
 
-8. [Amazon Dynamo DB](https://github.com/EspressoLogicCafe/Examples/tree/master/Amazon-Dynamo-DB-DataSource-Provider-Sample) : This example is sample code to add Amazon Dynamo DB as data source provider in Live API Creator.
+8. [Amazon Dynamo DB](https://github.com/EspressoLogicCafe/Examples/tree/master/Amazon-Dynamo-DB-DataSource-Provider-Sample) : This example is sample code to add Amazon Dynamo DB as data source provider in Live API Creator. For v5.1 or v5.2 only.
 
 9. [db2i-AS400](https://github.com/EspressoLogicCafe/Examples/tree/master/db2i-AS400): This example demonstrates how to use Live API Creator with AS400.
 
@@ -23,4 +23,4 @@ This is a directory of example resources that the Live API Creator (LAC) team ma
 
 11. [Simple LDAP AuthProvider](https://github.com/EspressoLogicCafe/Examples/tree/master/SimpleLDAPAuthProvider): A JavaScript-only authentication provider example that uses a public LDAP server.
 
-12. [Data Source Provider 5.3 Examples](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider): Various examples that uses the Live API Creator 5.3 extensible data source provider framework.
+12. [Data Source Provider 5.3 Examples](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider): Various examples that uses the Live API Creator v5.3 and higher extensible data source provider framework.
