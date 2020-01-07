@@ -19,4 +19,4 @@ In an existing API data source, you can add a data source that uses a data sourc
 3. [PetStore](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/PetStore): This example demonstrates how to use the framework to call REST. 
 4. [Rally](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Rally): This example demonstrates using REST to define all endpoints.
 5. [Runscope](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/Runscope): This example demonstrates using REST to define endpoints.
-6. [CDatq CSV/TSV](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/CDataCSV): This example uses the CData CSV/TSV driver (read-only).
+6. [CData CSV/TSV](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider/CDataCSV): This example uses the CData CSV/TSV driver (read-only).
