@@ -1,0 +1,5 @@
+{
+  "name": "CData CSV",
+  "description": "JDBCExample using Apache Derby Northwind data source provider",
+  "isEnabled": true
+}
