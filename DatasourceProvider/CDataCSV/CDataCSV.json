@@ -1,0 +1,5 @@
+{
+  "name": "CDataCSV",
+  "description": "CData CSV data source provider",
+  "isEnabled": true
+}
