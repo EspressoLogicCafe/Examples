@@ -1,0 +1,5 @@
+{
+  "name": "MockProvider",
+  "description": "Creates a mock service to  return one or more data structures to demonstrate the framework",
+  "isEnabled": true
+}
