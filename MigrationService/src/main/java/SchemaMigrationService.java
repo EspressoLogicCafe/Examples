@@ -151,12 +151,6 @@ public class SchemaMigrationService {
 		sb.append(COMMENT_LINE + " Please change script [preifx] and lacadmin target host\n");
 		sb.append(COMMENT_LINE + " To use: set the isEditable=true data source prefix on the target project\n");
 		sb.append(COMMENT_LINE + " \n");
-		sb.append(COMMENT_LINE + " lacadmin managedserver create --server_name foo --user_name DerbyMDS --password blee \n");
-		sb.append(COMMENT_LINE + "       --url 'jdbc:derby:directory:ManagedData;create=true' \n");
-		sb.append(COMMENT_LINE + "     --active true --dbasetype derby \n");
-		sb.append(COMMENT_LINE + " lacadmin managedserver list \n");
-		sb.append(COMMENT_LINE + " lacadmin datasource createDatabase --active true --prefix bar --managedserver_ident 2000 --schema_editable true \n");
-		sb.append(COMMENT_LINE + " \n");
 		sb.append(COMMENT_LINE + "================================================================\n");
 	}
 

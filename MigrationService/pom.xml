@@ -8,7 +8,7 @@
 		<downloadSources>false</downloadSources>
 		<downloadJavadocs>false</downloadJavadocs>
 		<maven.version>3.2</maven.version>
-		<jackson-2-version>2.2.3</jackson-2-version>
+		<jackson-2-version>2.11.2</jackson-2-version>
 		<jersey-version>1.17.1</jersey-version>
 		<gson-version>2.3.1</gson-version>
 	</properties>

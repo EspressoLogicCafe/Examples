@@ -66,12 +66,12 @@ public class MigrationService {
 			System.exit(1);
 		}
 		if (args.length == 5) {
-			hostNameAndPort = args[0];        //args1 = hostNameAndPort (http://localhost:8080)
-			adminUser = args[1];            //args2 = adminUser (sa)
-			adminPassword = args[2];        //args3 = admin password (Password1)
-			lacUser = args[3];                //arg4 = lacUser (admin)
-			lacPassword = args[4];            //arg5 = lacPassword (Password1)
-			//arg6 = encrypted|plaintext (encrypted)
+			hostNameAndPort = args[0];        	//args1 = hostNameAndPort (http://localhost:8080)
+			adminUser = args[1];            	//args2 = adminUser (sa)
+			adminPassword = args[2];        	//args3 = admin password (Password1)
+			lacUser = args[3];                	//arg4 = lacUser (admin)
+			lacPassword = args[4];            	//arg5 = lacPassword (Password1)
+			//arg6 = encrypted|plaintext (encrypted) NOT USED
 			String sep = (hostNameAndPort.endsWith("/"))?"": "/";
 			BASE_HOST_FRAGMENT = hostNameAndPort + sep + "rest/abl/admin/v2/";
 		}
@@ -89,15 +89,22 @@ public class MigrationService {
 				account_ident = ident;
 				printExportMessage(COMMENT_LINE + "Start Export teamspace ident:" + account_ident);
 				String version = migrationService.determineVersion("admin:server_properties?sysfilter=equal(ident:1)");
+				System.out.println("Version " + version);
 				migrationService.logonScript(inportSB);
 				inportSB.append(COMMENT_LINE + "Start Import teamspace ident:" + account_ident + fileLineBreak);
 				switch (version) {
-					case "3.1":
-					case "3.2":
-						migrationService.from31(inportSB);
-						break;
+					//deprecated
+					//case "3.1":
+					//case "3.2":
+					//	migrationService.from31(inportSB);
+					//	break;
 					case "4.1":
 					case "5.0":
+					case "5.1":
+					case "5.2":
+					case "5.3":
+					case "5.4":
+					default:
 						migrationService.from41(inportSB);
 						break;
 				}
@@ -197,7 +204,7 @@ public class MigrationService {
 		accountLevelExtracts32(sb);
 		sb.append(COMMENT_LINE + "Start import"+fileLineBreak);
 		sb.append(COMMENT_LINE + OS_COMMAND + " api import --file " + masterDirectoryName + "AllProjects" + account_ident + ".zip --namecollision replace_existing"+fileLineBreak);
-		List<String> idents = listObjects(sb, "PROJECT", "api", "admin:projects?sysfilter=equal(account_ident:" + account_ident + ")");
+		List<String> idents = listObjects(sb, "api", "api", "admin:projects?sysfilter=equal(account_ident:" + account_ident + ")");
 		for (String map : idents) {
 			String[] content = map.split(",");
 			String ident = content[0];
@@ -225,7 +232,7 @@ public class MigrationService {
 
 	private void accountLevelExtracts32(final StringBuilder sb) throws Exception {
 		listObjects(sb, "AUTHPROVIDER", "authprovider", "admin:authproviders?sysfilter=equal(account_ident:" + account_ident + ")&sysfilter=greater(ident:1000)");
-		listObjects(sb, "MANAGEDSERVER", "managedserver", "admin:managed_data_servers?sysfilter=equal(account_ident:" + account_ident + ")");
+		//removed in 5.4 listObjects(sb, "MANAGEDSERVER", "managedserver", "admin:managed_data_servers?sysfilter=equal(account_ident:" + account_ident + ")");
 		listObjects(sb, "GATEWAY", "gateway", "admin:gateways?sysfilter=equal(account_ident:" + account_ident + ")");
 	}
 
@@ -245,8 +252,8 @@ public class MigrationService {
 			if (((String)name).startsWith("Built-in")) {
 				continue;
 			}
-			if (command.equals("project")) {
-				printExportMessage(OS_COMMAND + " " + command + " export --url_name " + urlname + " --file " + masterDirectoryName + clean(prefix + "_" + name) + ".json");
+			if (command.equalsIgnoreCase("project")) {
+				printExportMessage(OS_COMMAND + " project export --url_name " + urlname + " --file " + masterDirectoryName + clean(prefix + "_" + name) + ".json");
 			}
 			else {
 				if (command.equals("api")) {
