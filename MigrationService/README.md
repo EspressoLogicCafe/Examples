@@ -3,7 +3,7 @@ The migration service is a utility written in Java to help DevOps create and run
 the export/import between Live API Creator (LAC) versions. The shell program prompts for the source LAC server host
 and the system and TeamSpace user/password. The output is a command line script to export all of your source server components. It also generates a script to import these components to the new Live API Creator server. You can modify the generated scripts to reflect the correct host server, user/passwords, and perhaps database data source passwords. If you have multiple TeamSpace entries, initialize the LAC 5.0 server to support each new TeamSpace instances with a default user.
 ## Prerequisites
-Ensure that you have Java installed (the main service is a Java class). You might need to install GIT and ZIP command line tools. If you download the ZIP version, then unzip the MigrationService-master.zip file.
+Ensure that you have Java installed (the main service is a Java class). You might need to install GIT and ZIP command line tools. If you download the ZIP version, then unzip the MigrationService-master.zip file. Make sure you have [Maven](https://maven.apache.org/download.cgi) installed.
 ```aidl
 * java JDK 8
 * git command line 
@@ -17,6 +17,7 @@ git clone https://github.com/EspressoLogicCafe/MigrationService.git ~/MigrationS
 Change directory.
 
 cd ~/MigrationService
+mvn install
 
 Note: you may need to change the permissions of this directory to allow execute of the scripts.
 ```
