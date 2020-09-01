@@ -3,6 +3,7 @@ import java.io.File;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -241,7 +242,7 @@ public class MigrationService {
 		String endpoint = BASE_HOST_FRAGMENT + endpointName;
 
 		String jsonString = restGet(endpoint, APIKEY);
-		JSONArray array = asJsonOArrayt(jsonString);
+		JSONArray array = asJsonOArray(jsonString);
 		if (null != array && array.size() > 0) {
 			//printExportMessage("#Start Export " + prefix);
 		}
@@ -249,7 +250,7 @@ public class MigrationService {
 			Object name = ((JSONObject)array.get(i)).get("name");
 			Object ident = ((JSONObject)array.get(i)).get("ident");
 			Object urlname = ((JSONObject)array.get(i)).get("url_name");
-			if (((String)name).startsWith("Built-in")) {
+			if (StringUtils.isEmpty((String) name) || ((String)name).startsWith("Built-in")) {
 				continue;
 			}
 			if (command.equalsIgnoreCase("project")) {
@@ -290,7 +291,7 @@ public class MigrationService {
 	private List<String> findAllTeamSpaces(String endpointName) throws Exception {
 		List<String> idents = new ArrayList<>();
 		String jsonString = restGet(BASE_HOST_FRAGMENT + endpointName, APIKEY);
-		JSONArray array = asJsonOArrayt(jsonString);
+		JSONArray array = asJsonOArray(jsonString);
 		if (null != array && array.size() == 0) {
 			return idents;
 		}
@@ -307,7 +308,7 @@ public class MigrationService {
 
 	private void findLibraries(StringBuilder importSB, String endpointName) throws Exception {
 		String jsonString = restGet(BASE_HOST_FRAGMENT + endpointName, APIKEY);
-		JSONArray array = asJsonOArrayt(jsonString);
+		JSONArray array = asJsonOArray(jsonString);
 		if (null != array && array.size() == 0) {
 			return;
 		}
@@ -322,7 +323,7 @@ public class MigrationService {
 		String endpoint = BASE_HOST_FRAGMENT + endpointName;
 
 		String jsonString = restGet(endpoint, APIKEY);
-		JSONArray array = asJsonOArrayt(jsonString);
+		JSONArray array = asJsonOArray(jsonString);
 		if (null != array && array.size() == 0) {
 			return;
 		}
@@ -375,7 +376,7 @@ public class MigrationService {
 		String version = "3.1"; //3.2 is the same
 		String currentAdminSchema = "20180501";
 		String jsonString = restGet(BASE_HOST_FRAGMENT + endpoint, APIKEY);
-		JSONArray array = asJsonOArrayt(jsonString);
+		JSONArray array = asJsonOArray(jsonString);
 		for (int i = 0; i < array.size(); i++) {
 			Object prop_name = ((JSONObject)array.get(i)).get("prop_name");
 			String prop_version = ((JSONObject)array.get(i)).get("prop_value").toString();
@@ -483,7 +484,7 @@ public class MigrationService {
 		return APIKEY;
 	}
 
-	protected JSONArray asJsonOArrayt(String obj) throws ParseException {
+	protected JSONArray asJsonOArray(String obj) throws ParseException {
 		JSONParser parser = new JSONParser();
 		return (JSONArray)parser.parse(obj);
 	}
