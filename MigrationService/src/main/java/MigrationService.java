@@ -240,8 +240,8 @@ public class MigrationService {
 	private List<String> listObjects(StringBuilder importSB, String prefix, String command, String endpointName) throws Exception {
 		List<String> idents = new ArrayList<>();
 		String endpoint = BASE_HOST_FRAGMENT + endpointName;
-
-		String jsonString = restGet(endpoint, APIKEY);
+		// bug fix - avoid pagination if more then default object size
+		String jsonString = restGet(endpoint, 1000,0, APIKEY);
 		JSONArray array = asJsonOArray(jsonString);
 		if (null != array && array.size() > 0) {
 			//printExportMessage("#Start Export " + prefix);
