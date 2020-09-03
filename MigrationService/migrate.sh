@@ -12,7 +12,7 @@ ${EL_JAVA}/commons-logging-1.2.jar:\
 ${EL_JAVA}/jersey-apache-client-1.17.1.jar:\
 ${EL_JAVA}/jersey-client-1.17.1.jar:\
 ${EL_JAVA}/jersey-core-1.17.1.jar:\
-${EL_JAVA}/jackson-databind-2.2.2.jar:\
+${EL_JAVA}/jackson-databind-2.2.3.jar:\
 ${EL_JAVA}/jackson-annotations-2.2.3.jar:\
 ${EL_JAVA}/jackson-core-2.2.3.jar:\
 ${EL_JAVA}/slf4j-api-1.6.3.jar:\

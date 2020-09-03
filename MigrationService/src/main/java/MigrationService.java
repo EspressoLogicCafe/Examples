@@ -424,7 +424,11 @@ public class MigrationService {
 	}
 
 	public String restGet(String uri, int pagesize, int offset, String anApiKey) throws Exception {
-		return restGet(uri + "?pagesize=" + pagesize + "&offset=" + offset + "&nometa=true", anApiKey);
+		String join = "?";
+		if(uri.contains("?")){
+			join = "&";
+		}
+		return restGet(uri + join + "pagesize=" + pagesize + "&offset=" + offset + "&nometa=true", anApiKey);
 	}
 
 	public String restGet(String uri, String anApiKey) throws Exception {
