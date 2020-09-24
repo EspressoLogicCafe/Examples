@@ -1,0 +1,5 @@
+{
+  "name": "CDataSalesforce",
+  "description": "CData Salesforce data source provider",
+  "isEnabled": true
+}
