@@ -25,4 +25,4 @@ This is a directory of example resources that the Live API Creator (LAC) team ma
 
 12. [Data Source Provider 5.3 Examples](https://github.com/EspressoLogicCafe/Examples/tree/master/DatasourceProvider): Various examples that uses the Live API Creator v5.3 and higher extensible data source provider framework.
 
-12. [ResponseEventToHideHostIP](https://github.com/EspressoLogicCafe/Examples/tree/master/ResponseEventToHideHostIP): Simple example that uses Response Events to hide or delete the hostname or host ip information from LAC's response.
+13. [ResponseEventToHideHostIP](https://github.com/EspressoLogicCafe/Examples/tree/master/ResponseEventToHideHostIP): Simple example that uses Response Events to hide or delete the hostname or host ip information from LAC's response.
